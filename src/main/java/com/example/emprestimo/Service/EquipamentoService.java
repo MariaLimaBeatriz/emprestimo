@@ -1,0 +1,32 @@
+package com.example.emprestimo.Service;
+
+import com.example.emprestimo.model.Equipamento;
+import com.example.emprestimo.model.TipoEquipamento;
+import com.example.emprestimo.repository.EquipamentoRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+
+@Service // - Onde irá está a regua de negocio
+public class EquipamentoService {
+
+    private final EquipamentoRepository repository;
+
+    public EquipamentoService(EquipamentoRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Equipamento> listar(TipoEquipamento tipo) {
+        if (tipo == null) { return repository.findAll(); }
+        return repository.findByTipo(tipo);
+    }
+
+    public Equipamento buscar(Long id) {
+        return repository.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado"));
+    }
+    // cadastrar no próximo slide
+}
+
