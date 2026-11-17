@@ -27,6 +27,10 @@ public class EquipamentoService {
         return repository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado"));
     }
+
+    public Equipamento cadastrar(Equipamento equipamento) {
+        return null;
+    }
     // cadastrar no próximo slide
 }
 
