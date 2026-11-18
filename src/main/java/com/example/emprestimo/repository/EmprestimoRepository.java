@@ -1,4 +1,12 @@
 package com.example.emprestimo.repository;
 
-public interface EmprestimoRepository {
+import com.example.emprestimo.model.Emprestimo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
+
+    List<Emprestimo> findByColaboradorId(Long colaboradorId);
+
 }

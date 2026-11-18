@@ -22,7 +22,17 @@ public class Equipamento {
     private boolean disponivel = true;
 
     public Equipamento() { }
-    // getters e setters no próximo slide
+
+    public void emprestar(){
+        if (this.disponivel) {
+            throw new IllegalStateException("Equipamento indisponível");
+        }
+        this.disponivel = false;
+    }
+
+    public void devolver() {
+        this.disponivel = true;
+    }
 
 
     public void setDisponivel(boolean disponivel) {
