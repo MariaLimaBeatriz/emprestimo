@@ -68,7 +68,7 @@ emprestimo/
 ### Passo a passo
 1. **Clone o repositório:**
    ```bash
-   git clone <LINK_DO_SEU_REPOSITORIO_GITHUB>
+   git clone <https://github.com/MariaLimaBeatriz/emprestimo>
    cd emprestimo
    ```
 
@@ -171,7 +171,7 @@ Ou no IntelliJ: clique com o botão direito na pasta `src/test/java` e selecione
 
 ## -- Bônus Implementados
 
-### 📄 Swagger / OpenAPI (Nível 1)
+### --  Swagger / OpenAPI (Nível 1)
 Documentação interativa gerada automaticamente com tela para testar todas as rotas diretamente pelo navegador sem precisar do Postman:
 * **Localmente:** `http://localhost:8080/swagger-ui/index.html`
 * **No Render:** `https://sistema-emprestimo-api.onrender.com/swagger-ui/index.html`
