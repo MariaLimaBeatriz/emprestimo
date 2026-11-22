@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/equipamentos")
 public class EquipamentoController {
 
     private final EquipamentoService service;
-    public EquipamentoController(EquipamentoService service) { this.service = service; }
+
+    public EquipamentoController(EquipamentoService service) {
+        this.service = service;
+    }
 
     @GetMapping
-    public List<Equipamento> listar(@RequestParam(required = false) TipoEquipamento tipo) {
-        return service.listar(tipo);
+    public List<Equipamento> listar(
+            @RequestParam(required = false) TipoEquipamento tipo,
+            @RequestParam(required = false) Boolean disponivel) {
+        return service.listar(tipo, disponivel);
     }
 
     @GetMapping("/{id}")
@@ -31,5 +36,14 @@ public class EquipamentoController {
         return service.cadastrar(equipamento);
     }
 
-}
+    @PutMapping("/{id}")
+    public Equipamento atualizar(@PathVariable Long id, @RequestBody Equipamento dados) {
+        return service.atualizar(id, dados);
+    }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable Long id) {
+        service.remover(id);
+    }
+}

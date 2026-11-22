@@ -24,7 +24,7 @@ public class Equipamento {
     public Equipamento() { }
 
     public void emprestar(){
-        if (this.disponivel) {
+        if (!this.disponivel) {
             throw new IllegalStateException("Equipamento indisponível");
         }
         this.disponivel = false;

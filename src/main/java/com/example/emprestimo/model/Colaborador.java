@@ -58,6 +58,6 @@ public class Colaborador {
     }
 
     public void setNome(String nome) {
-        nome = nome;
+        this.nome = nome;
     }
 }
